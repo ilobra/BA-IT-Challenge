@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="mystyle.css"/>
+	<title>Atsiliepimai</title>
+</head>
+	<body>
+	<div class="container">
+	<input type="text" id="searchInput" onkeyup="search()" placeholder="Ieškoti atsiliepimų...">
+	</div>
+	<div class="container1">
+	<% if (json.length>1) { %><center><h1>Visi atsiliepimai</h1></center><br>
+	<% } else { %><center><h1>Jūsų paliktas atsiliepimas</h1></center><br>
+	<% } %>
+	<table id="myTable">
+	<thead>
+	<tr><th class="vardas">Vardas</th>
+	<th class="elpastas">El. paštas</th>
+	<th class="data">Data</th>
+	<th class="komentaras">Komentaras</th></tr>
+	</thead>
+	<tbody>
+	<% if (json.length>1) { %>
+	<% for(var i=0; i < json.length; i++) { %>
+	<tr>
+     <td><%= json[i].vardas %></td>
+     <td><%= json[i].elpastas %></td>
+	 <td><%= json[i].data %> <%= json[i].laikas %></td>
+	 <td><%= json[i].komentaras %></td>
+	</tr>
+	<% }} else { %>
+	<tr>
+     <td><%= json.vardas %></td>
+     <td><%= json.elpastas %></td>
+	 <td><%= json.data %> <%= json.laikas %></td>
+	 <td><%= json.komentaras %></td>
+	</tr>
+	<% } %>
+	</tbody></table><br>
+	<% if (json.length>1) { %>
+	<center><a href="/">Rašyti naują atsiliepimą</a></center>
+	<% } else {%>
+	<center><a href="/">Rašyti naują atsiliepimą</a></center><br>
+	<center><a href="/feedbacks">Peržiūrėti visus atsiliepimus</a></center>
+	<% } %>
+	
+	</div>
+	<script>
+	function search() {
+	var input = document.getElementById("searchInput");
+	var filter = input.value.toUpperCase();
+	var table = document.getElementById("myTable");
+	var tr = table.getElementsByTagName("tr");
+
+	var td, txtValue;
+	//parodo tik tuos komentarus, kurie atitinka parašytą žodį
+	for (var i = 0; i < tr.length; i++) {
+		td = tr[i].getElementsByTagName("td")[3];
+		if (td) {
+			txtValue = td.textContent || td.innerText;
+			if (txtValue.toUpperCase().indexOf(filter) > -1) {
+				tr[i].style.display = "";
+			} else {
+			tr[i].style.display = "none";
+		}
+		}
+	}
+	}
+	</script>
+	</body>
+	</html>

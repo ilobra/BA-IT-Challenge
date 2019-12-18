@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="mystyle.css"/>
+	<title>Atsiliepimai</title>
+	</head>
+	<body>
+	<nav><a href="/feedbacks" class="button">Visi atsiliepimai</a></nav>
+	<div class="container">
+      <form id="forma" method="POST" action="/feedbacks" onsubmit="return validateForm()">
+      <h3>Rašyti atsiliepimą</h3>
+	  <fieldset>
+	  <label>Vardas</label>
+      <input placeholder="Jūsų vardas" type="text" name="vardas" id="vardas" value="" required />
+      </fieldset>
+	  <fieldset>
+	  <label>El. paštas</label>
+      <input placeholder="Jūsų el. paštas" type="email" name="elpastas" id="elpastas" value="" required />
+      </fieldset>
+	  <fieldset>
+	  <input type="hidden" id="data" name="data" /> 
+	  <input type="hidden" id="laikas" name="laikas" /> 
+	  <label>Komentaras</label>
+      <textarea placeholder="Rašykite komentarą" name="komentaras" id="komentaras" rows="6" cols="50" required ></textarea>
+      </fieldset>
+	  <input id="button" type="submit" value="Pateikti" />     
+	  </form>      
+    </div>
+	
+	<script type="text/javascript">
+		//suformatuoja datą ir laiką pavidalu "Weekday Month Day Year HH:MM:SS"
+		var d = new Date();
+		document.getElementById("data").value = d.toDateString();
+
+		var hours = d.getHours();
+		var mins = d.getMinutes();
+		var seconds = d.getSeconds();
+		document.getElementById("laikas").value = hours + ":" + mins + ":" + seconds;
+	</script>
+	<script> 
+		//patikrina, ar varde nėra skaičių ir ženklų
+		function validateForm() 
+		{
+			if(/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/.test(forma.vardas.value))
+			{
+				return (true)
+			}
+			else
+			{
+				alert("Varde negali būti skaičių ar ženklų")
+				return (false)
+			}
+		}
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	</body>
+	</html>
