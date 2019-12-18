@@ -1,0 +1,7 @@
+D:\Users\Ilona\My Documents\VisualStudio\1uzduotis\1uzduotis\bin\Debug\1uzduotis.exe.config
+D:\Users\Ilona\My Documents\VisualStudio\1uzduotis\1uzduotis\bin\Debug\1uzduotis.exe
+D:\Users\Ilona\My Documents\VisualStudio\1uzduotis\1uzduotis\bin\Debug\1uzduotis.pdb
+D:\Users\Ilona\My Documents\VisualStudio\1uzduotis\1uzduotis\obj\Debug\1uzduotis.csprojAssemblyReference.cache
+D:\Users\Ilona\My Documents\VisualStudio\1uzduotis\1uzduotis\obj\Debug\1uzduotis.csproj.CoreCompileInputs.cache
+D:\Users\Ilona\My Documents\VisualStudio\1uzduotis\1uzduotis\obj\Debug\1uzduotis.exe
+D:\Users\Ilona\My Documents\VisualStudio\1uzduotis\1uzduotis\obj\Debug\1uzduotis.pdb
